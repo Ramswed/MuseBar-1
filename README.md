@@ -40,7 +40,6 @@ MuseBar/
 │   │   ├── config.js       # Configuration principale du site
 │   │   └── menu-config.js  # Configuration du menu
 │   ├── loader.js           # Chargeur de fragments HTML
-│   ├── main.js             # Point d'entrée principal
 │   ├── utils.js            # Fonctions utilitaires
 │   ├── navigation.js       # Gestion de la navigation
 │   ├── smooth-scroll.js    # Défilement fluide

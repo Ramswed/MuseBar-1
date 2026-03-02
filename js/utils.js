@@ -1,20 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-  function initialiserLogos() {
-    const siteLogo = document.querySelector(".nav-logo img");
-    if (siteLogo && SITE_CONFIG?.site?.logo) {
-      siteLogo.src = SITE_CONFIG.site.logo;
-      siteLogo.alt = `${SITE_CONFIG.site.name} Logo`;
-    }
-
-    const heroLogo = document.querySelector(".hero-logo img");
-    if (heroLogo && SITE_CONFIG?.site?.logo) {
-      heroLogo.src = SITE_CONFIG.site.logo;
-      heroLogo.alt = `${SITE_CONFIG.site.name} Logo`;
-    }
-  }
-
-  initialiserLogos();
-
   document.querySelectorAll("img").forEach((img) => {
     img.addEventListener("error", function () {
       this.style.display = "none";
@@ -34,21 +18,21 @@ document.addEventListener("DOMContentLoaded", function () {
   function initAddressCopy() {
     const addressClickable = document.querySelector(".address-clickable");
     const copyFeedback = document.querySelector(".copy-feedback");
-    
+
     if (addressClickable && copyFeedback) {
       addressClickable.style.cursor = "pointer";
-      
-      addressClickable.addEventListener("click", async function() {
+
+      addressClickable.addEventListener("click", async function () {
         const address = this.getAttribute("data-address");
-        
+
         try {
           await navigator.clipboard.writeText(address);
-          
+
           copyFeedback.classList.add("show");
-          
+
           setTimeout(() => {
             copyFeedback.classList.remove("show");
-            }, 2000);
+          }, 2000);
         } catch (err) {
           const textArea = document.createElement("textarea");
           textArea.value = address;
@@ -56,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
           textArea.style.opacity = "0";
           document.body.appendChild(textArea);
           textArea.select();
-          
+
           try {
             document.execCommand("copy");
             copyFeedback.classList.add("show");
@@ -66,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
           } catch (fallbackErr) {
             console.error("Impossible de copier l'adresse:", fallbackErr);
           }
-          
+
           document.body.removeChild(textArea);
         }
       });
@@ -75,5 +59,53 @@ document.addEventListener("DOMContentLoaded", function () {
 
   initAddressCopy();
 
-  window.addEventListener('fragmentsLoaded', initAddressCopy);
+  window.addEventListener("fragmentsLoaded", initAddressCopy);
+
+  // Correction des liens pour les pages légales
+  function fixLegalPageLinks() {
+    const currentPage = window.location.pathname;
+    const isLegalPage =
+      currentPage.includes("mentions-legales.html") ||
+      currentPage.includes("politique-confidentialite.html");
+
+    if (!isLegalPage) return;
+
+    // Corriger le logo pour pointer vers l'accueil
+    const logoLink = document.querySelector(".nav-logo a");
+    if (logoLink) {
+      logoLink.href = "index.html";
+      logoLink.removeAttribute("target");
+      logoLink.removeAttribute("rel");
+      logoLink.setAttribute("aria-label", "Retour à l'accueil");
+    }
+
+    // Corriger les liens de navigation (header)
+    document.querySelectorAll(".nav-menu a.nav-link").forEach((link) => {
+      const href = link.getAttribute("href");
+      if (href && href.startsWith("#")) {
+        link.href = `index.html${href}`;
+      }
+    });
+
+    // Corriger les liens du footer
+    document.querySelectorAll(".footer-links a").forEach((link) => {
+      const href = link.getAttribute("href");
+      if (href && href.startsWith("#")) {
+        // Pour #accueil, on va juste à index.html
+        if (href === "#accueil") {
+          link.href = "index.html";
+        } else {
+          link.href = `index.html${href}`;
+        }
+      }
+    });
+  }
+
+  // Exécuter après le chargement des fragments
+  window.addEventListener("fragmentsLoaded", fixLegalPageLinks);
+
+  // Exécuter aussi au chargement si les fragments sont déjà chargés
+  if (document.readyState === "complete") {
+    setTimeout(fixLegalPageLinks, 100);
+  }
 });
