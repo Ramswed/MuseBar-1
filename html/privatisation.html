@@ -10,10 +10,32 @@
     <div class="privatisation-content">
       <div class="privatisation-image">
         <div class="privatisation-image-wrapper">
-          <img
-            src="images/cavepv.png"
-            alt="Cave du Muse Bar pour privatisation"
-          />
+          <picture>
+            <source
+              type="image/avif"
+              srcset="
+                images/optimized/cavepv-480.avif 480w,
+                images/optimized/cavepv-768.avif 768w,
+                images/optimized/cavepv-1280.avif 1280w
+              "
+              sizes="(max-width: 768px) 92vw, 50vw"
+            />
+            <source
+              type="image/webp"
+              srcset="
+                images/optimized/cavepv-480.webp 480w,
+                images/optimized/cavepv-768.webp 768w,
+                images/optimized/cavepv-1280.webp 1280w
+              "
+              sizes="(max-width: 768px) 92vw, 50vw"
+            />
+            <img
+              src="images/cavepv.png"
+              alt="Cave du Muse Bar pour privatisation"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
           <div class="privatisation-image-overlay"></div>
         </div>
       </div>
@@ -25,6 +47,8 @@
               src="images/orange.svg"
               alt="Icône orange"
               class="privatisation-icon"
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <div class="privatisation-card-content">

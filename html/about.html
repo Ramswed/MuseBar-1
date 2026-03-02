@@ -37,57 +37,176 @@
       <div class="about-image">
         <div class="slideshow-container">
           <div class="slide active">
-            <img src="images/carrousel/bar.jpg" alt="Intérieur du Muse Bar" />
+            <picture>
+              <source
+                type="image/avif"
+                srcset="
+                  images/optimized/carrousel/bar-480.avif 480w,
+                  images/optimized/carrousel/bar-768.avif 768w,
+                  images/optimized/carrousel/bar-1280.avif 1280w
+                "
+                sizes="(max-width: 768px) 92vw, 50vw"
+              />
+              <source
+                type="image/webp"
+                srcset="
+                  images/optimized/carrousel/bar-480.webp 480w,
+                  images/optimized/carrousel/bar-768.webp 768w,
+                  images/optimized/carrousel/bar-1280.webp 1280w
+                "
+                sizes="(max-width: 768px) 92vw, 50vw"
+              />
+              <img
+                src="images/carrousel/bar.jpg"
+                alt="Intérieur du Muse Bar"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
             <div class="slide-caption">
               <h3>Intérieur du Bar</h3>
               <p>Ambiance chaleureuse et conviviale</p>
             </div>
           </div>
           <div class="slide">
-            <img
-              src="images/carrousel/cave.png"
-              alt="Cave privatisable du Muse Bar"
-            />
+            <picture>
+              <source
+                type="image/avif"
+                srcset="
+                  images/optimized/carrousel/cave-480.avif 480w,
+                  images/optimized/carrousel/cave-768.avif 768w,
+                  images/optimized/carrousel/cave-1280.avif 1280w
+                "
+                sizes="(max-width: 768px) 92vw, 50vw"
+              />
+              <source
+                type="image/webp"
+                srcset="
+                  images/optimized/carrousel/cave-480.webp 480w,
+                  images/optimized/carrousel/cave-768.webp 768w,
+                  images/optimized/carrousel/cave-1280.webp 1280w
+                "
+                sizes="(max-width: 768px) 92vw, 50vw"
+              />
+              <img
+                src="images/carrousel/cave.png"
+                alt="Cave privatisable du Muse Bar"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
             <div class="slide-caption">
               <h3>Cave Privatisable</h3>
               <p>Espace privé pour 25-45 personnes</p>
             </div>
           </div>
           <div class="slide">
-            <img
-              src="images/carrousel/terrasse.png"
-              alt="Terrasse du Muse Bar"
-            />
+            <picture>
+              <source
+                type="image/avif"
+                srcset="
+                  images/optimized/carrousel/terrasse-480.avif 480w,
+                  images/optimized/carrousel/terrasse-922.avif 922w
+                "
+                sizes="(max-width: 768px) 92vw, 50vw"
+              />
+              <source
+                type="image/webp"
+                srcset="
+                  images/optimized/carrousel/terrasse-480.webp 480w,
+                  images/optimized/carrousel/terrasse-922.webp 922w
+                "
+                sizes="(max-width: 768px) 92vw, 50vw"
+              />
+              <img
+                src="images/carrousel/terrasse.png"
+                alt="Terrasse du Muse Bar"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
             <div class="slide-caption">
               <h3>Terrasse</h3>
               <p>Espace extérieur pour profiter du beau temps</p>
             </div>
           </div>
           <div class="slide">
-            <img
-              src="images/carrousel/biere.jpg"
-              alt="Sélection de bières au Muse Bar"
-            />
+            <picture>
+              <source
+                type="image/avif"
+                srcset="
+                  images/optimized/carrousel/biere-480.avif 480w,
+                  images/optimized/carrousel/biere-768.avif 768w,
+                  images/optimized/carrousel/biere-1280.avif 1280w
+                "
+                sizes="(max-width: 768px) 92vw, 50vw"
+              />
+              <source
+                type="image/webp"
+                srcset="
+                  images/optimized/carrousel/biere-480.webp 480w,
+                  images/optimized/carrousel/biere-768.webp 768w,
+                  images/optimized/carrousel/biere-1280.webp 1280w
+                "
+                sizes="(max-width: 768px) 92vw, 50vw"
+              />
+              <img
+                src="images/carrousel/biere.jpg"
+                alt="Sélection de bières au Muse Bar"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
             <div class="slide-caption">
               <h3>Nos Bières</h3>
               <p>Sélection de bières normandes et artisanales</p>
             </div>
           </div>
           <div class="slide">
-            <img
-              src="images/carrousel/planche.jpg"
-              alt="Planches à partager au Muse Bar"
-            />
+            <picture>
+              <source
+                type="image/avif"
+                srcset="
+                  images/optimized/carrousel/planche-480.avif 480w,
+                  images/optimized/carrousel/planche-768.avif 768w,
+                  images/optimized/carrousel/planche-1280.avif 1280w
+                "
+                sizes="(max-width: 768px) 92vw, 50vw"
+              />
+              <source
+                type="image/webp"
+                srcset="
+                  images/optimized/carrousel/planche-480.webp 480w,
+                  images/optimized/carrousel/planche-768.webp 768w,
+                  images/optimized/carrousel/planche-1280.webp 1280w
+                "
+                sizes="(max-width: 768px) 92vw, 50vw"
+              />
+              <img
+                src="images/carrousel/planche.jpg"
+                alt="Planches à partager au Muse Bar"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
             <div class="slide-caption">
               <h3>Planches à Partager</h3>
               <p>Découvrez nos tapas et tartines maison</p>
             </div>
           </div>
 
-          <button class="slideshow-btn prev" onclick="changeSlide(-1)">
+          <button
+            class="slideshow-btn prev"
+            onclick="changeSlide(-1)"
+            aria-label="Image précédente"
+          >
             <i class="fas fa-chevron-left"></i>
           </button>
-          <button class="slideshow-btn next" onclick="changeSlide(1)">
+          <button
+            class="slideshow-btn next"
+            onclick="changeSlide(1)"
+            aria-label="Image suivante"
+          >
             <i class="fas fa-chevron-right"></i>
           </button>
 

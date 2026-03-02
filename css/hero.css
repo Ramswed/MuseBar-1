@@ -1,13 +1,20 @@
 .hero {
   height: 100vh;
   padding-top: 80px;
-  background: linear-gradient(
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(
       45deg,
       rgba(11, 26, 57, 0.8) 0%,
       rgba(11, 26, 57, 0.4) 50%,
       rgba(255, 255, 255, 0.1) 100%
     ),
-    url("../images/dehors.png") center/cover no-repeat;
+    image-set(
+      url("../images/optimized/dehors-768.avif") type("image/avif"),
+      url("../images/optimized/dehors-768.webp") type("image/webp"),
+      url("../images/dehors.png") type("image/png")
+    );
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,6 +22,22 @@
   color: white;
   position: relative;
   overflow: hidden;
+}
+
+@media (min-width: 992px) {
+  .hero {
+    background-image: linear-gradient(
+        45deg,
+        rgba(11, 26, 57, 0.8) 0%,
+        rgba(11, 26, 57, 0.4) 50%,
+        rgba(255, 255, 255, 0.1) 100%
+      ),
+      image-set(
+        url("../images/optimized/dehors-1360.avif") type("image/avif"),
+        url("../images/optimized/dehors-1360.webp") type("image/webp"),
+        url("../images/dehors.png") type("image/png")
+      );
+  }
 }
 
 .hero::before {
