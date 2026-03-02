@@ -61,7 +61,7 @@
   font-size: 1.1rem;
 }
 
-.review-author h4 {
+.review-author-name {
   margin: 0;
   color: var(--primary-color);
   font-weight: 600;
