@@ -101,6 +101,10 @@
   color: var(--primary-color);
 }
 
+.nav-link:focus-visible {
+  color: var(--primary-color);
+}
+
 .nav-link::after {
   content: "";
   position: absolute;
@@ -116,6 +120,10 @@
   width: 100%;
 }
 
+.nav-link:focus-visible::after {
+  width: 100%;
+}
+
 .hamburger {
   display: none;
   flex-direction: column;
@@ -123,6 +131,13 @@
   align-items: center;
   justify-content: center;
   line-height: 0;
+  background: transparent;
+  border: 0;
+  padding: 0.25rem;
+}
+
+.hamburger:focus-visible {
+  border-radius: 6px;
 }
 
 .bar {

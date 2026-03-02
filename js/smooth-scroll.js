@@ -1,25 +1,30 @@
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute("href"));
-      if (target) {
-        const navbar = document.querySelector(".navbar");
-        const navbarHeight = navbar ? navbar.offsetHeight : 70;
+function initSmoothScroll() {
+  document.addEventListener("click", function (e) {
+    const anchor = e.target.closest('a[href^="#"]');
+    if (!anchor) return;
 
-        let offset = 70;
+    const href = anchor.getAttribute("href");
+    if (!href || href === "#") return;
 
-        if (this.getAttribute("href") === "#privatisation") {
-          offset = 120;
-        }
+    const target = document.querySelector(href);
+    if (!target) return;
 
-        const offsetTop = target.offsetTop - navbarHeight + offset;
+    e.preventDefault();
 
-        window.scrollTo({
-          top: offsetTop,
-          behavior: "smooth",
-        });
-      }
+    const navbar = document.querySelector(".navbar");
+    const navbarHeight = navbar ? navbar.offsetHeight : 70;
+    const extraOffset = href === "#privatisation" ? 120 : 70;
+    const offsetTop = target.offsetTop - navbarHeight + extraOffset;
+
+    window.scrollTo({
+      top: offsetTop,
+      behavior: "smooth",
     });
   });
-});
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initSmoothScroll);
+} else {
+  initSmoothScroll();
+}

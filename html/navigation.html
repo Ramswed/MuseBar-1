@@ -8,10 +8,16 @@
         class="nav-link"
         aria-label="Suivez-nous sur Instagram"
       >
-        <img src="images/logo.svg" alt="Muse Bar Logo" />
+        <img
+          src="images/logo.svg"
+          alt="Muse Bar Logo"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+        />
       </a>
     </div>
-    <ul class="nav-menu">
+    <ul class="nav-menu" id="primary-navigation">
       <li class="nav-item">
         <a href="#menu" class="nav-link">CARTE</a>
       </li>
@@ -28,10 +34,16 @@
         <a href="#avis" class="nav-link">AVIS</a>
       </li>
     </ul>
-    <div class="hamburger">
+    <button
+      class="hamburger"
+      type="button"
+      aria-label="Ouvrir le menu"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+    >
       <span class="bar"></span>
       <span class="bar"></span>
       <span class="bar"></span>
-    </div>
+    </button>
   </div>
 </nav>

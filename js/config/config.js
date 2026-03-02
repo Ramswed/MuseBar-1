@@ -54,7 +54,7 @@ const SITE_CONFIG = {
     keywords:
       "restaurant, bar, gastronomie, Rouen, planches à partager, cocktails, privatisation, cave, ambiance chaleureuse",
     author: "Muse Bar",
-    ogImage: "images/bar-interior.png",
+    ogImage: "images/homepage.png",
     canonical: "https://musebar.fr",
   },
 
@@ -114,6 +114,7 @@ function updateSiteContent() {
     const socialLinks = document.querySelectorAll(".social-links a");
     socialLinks.forEach((link) => {
       const icon = link.querySelector("i");
+      const iconClass = icon ? icon.className : "";
       if (icon && iconClass.includes("instagram")) {
         link.href = SITE_CONFIG.social.instagram;
       }

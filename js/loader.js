@@ -17,15 +17,22 @@ async function loadHTMLFragment(file, targetSelector) {
 }
 
 async function loadAllFragments() {
-  await loadHTMLFragment('html/navigation.html', '#navigation-container');
-  await loadHTMLFragment('html/hero.html', '#hero-container');
-  await loadHTMLFragment('html/menu.html', '#menu-container');
-  await loadHTMLFragment('html/about.html', '#about-container');
-  await loadHTMLFragment('html/privatisation.html', '#privatisation-container');
-  await loadHTMLFragment('html/find.html', '#find-container');
-  await loadHTMLFragment('html/reviews.html', '#reviews-container');
-  await loadHTMLFragment('html/media-banner.html', '#media-banner-container');
-  await loadHTMLFragment('html/footer.html', '#footer-container');
+  const fragments = [
+    ['html/navigation.html', '#navigation-container'],
+    ['html/hero.html', '#hero-container'],
+    ['html/menu.html', '#menu-container'],
+    ['html/about.html', '#about-container'],
+    ['html/privatisation.html', '#privatisation-container'],
+    ['html/find.html', '#find-container'],
+    ['html/reviews.html', '#reviews-container'],
+    ['html/media-banner.html', '#media-banner-container'],
+    ['html/footer.html', '#footer-container'],
+  ];
+
+  const fragmentPromises = fragments
+    .filter(([, selector]) => document.querySelector(selector))
+    .map(([file, selector]) => loadHTMLFragment(file, selector));
+  await Promise.all(fragmentPromises);
   
   window.dispatchEvent(new CustomEvent('fragmentsLoaded'));
 }

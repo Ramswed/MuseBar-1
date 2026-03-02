@@ -64,3 +64,6 @@ temp/
 
 # Image backups
 images_backup/
+
+# Lighthouse reports
+lighthouse-*
